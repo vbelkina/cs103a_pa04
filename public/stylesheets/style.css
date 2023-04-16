@@ -1,0 +1,91 @@
+html {
+  background-image: linear-gradient(#ffff, #e6c2f1);
+  height: 100%;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: none;
+}
+
+a {
+  color: #a27dad;
+}
+
+.transactions-table{
+  width: 50%;
+  border: 1px solid #000;
+  margin: 5px;
+  padding: 5px;
+}
+
+.transactions-table th{
+  border: 1px solid #000;
+  background-color: #a27dad;
+  margin: 5px;
+  padding: 5px;
+  color: #fff;
+}
+
+.transactions-table td{
+  border: 1px solid #000;
+  margin: 5px;
+  padding: 5px;
+}
+
+.transactions-table tr:nth-child(odd) {
+  background-color: #e1d6e4;
+}
+
+.transaction-buttons{
+  margin: 5px;
+  margin-left: 0px;
+  padding: 5px;
+}
+
+.transaction-buttons button{
+  margin: 5px;
+  padding: 10px;
+  background-color: #a27dad;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+}
+
+.transaction-buttons button:hover{
+  background-color: #e1d6e4;
+  color: #a27dad;
+}
+
+.form-table{
+  margin: 5px;
+  padding: 5px;
+}
+
+.form-table td{
+  margin: 5px;
+  padding: 5px;
+}
+
+.header-row{
+  background-color: #7d6285;
+  color: #ffffff;
+  font-size: x-large;
+  padding: 5px;
+  margin: 5px;
+}
+
+#edit-submit {
+  border: none; 
+  background-color: #a27dad;
+  color: #fff;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+#edit-submit:hover {
+  background-color: #e1d6e4;
+  color: #a27dad;
+}
+

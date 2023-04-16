@@ -1,0 +1,77 @@
+
+<h1 class="header-row"> transaction list for <%= user.username %> </h1>
+
+<div class="transaction-buttons">
+    <a href="/transaction/groupByCategory/"><button>Group by Category</button></a>
+    <a href="/transaction/sortByCategory/"><button>Sort by Category</button></a>
+    <a href="/transaction/sortByDate/"><button>Sort by Date</button></a>
+    <a href="/transaction/sortByDescription/"><button>Sort by Description</button></a>
+    <a href="/transaction/sortByAmount/"><button>Sort by Amount</button></a>
+</div>
+
+
+<table class="transactions-table">
+    <tr>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <% items.forEach(item => { %>
+        <tr>
+            <% if (item.edit == false) { %>
+            <td><%= item.description %></td>
+            <td><%= item.category %></td>
+            <td><%= item.amount %></td>
+            <td><%= item.date.toDateString() %></td>
+            <td> <a 
+                href="/transaction/edit/<%=item._id %>">
+               <i class="bi bi-pencil-square"></i>
+           </a></td>
+            <td><a href="/transaction/remove/<%=item._id %>">
+                <i class="bi bi-trash"></i>
+              </a></td>
+            <% } else { %>
+            <form method="post" action="/transaction/finish_edit/<%= item.id %>">
+                <td><input name="edit_description" value="<%= item.description %>"/></td>
+                <td><input name="edit_category" value="<%= item.category %>"/></td>
+                <td><input name="edit_amount" value="<%= item.amount %>"/></td>
+                <td><input name="edit_date" value="<%= item.date.toDateString() %>"/></td>
+                <td><input id="edit-submit" type="submit" value="edit"/></td>
+                <td><a href="/transaction/remove/<%=item._id %>">
+                    <i class="bi bi-trash"></i>
+                  </a></td>
+            </form>
+            <% } %>
+        </tr>
+    <% }) %>
+</table>
+<p>
+
+
+      <form method="post" action="transaction">
+        <table class="form-table">
+        <tr><div class="header-row">create a new transaction</div></tr>
+        <tr> 
+            <td>Description</td>
+            <td><input name="description" placeholder="description" /></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td><input name="category" placeholder="category" /></td>
+        </tr>
+        <tr>
+            <td>Amount</td>
+            <td><input name="amount" placeholder="amount" /></td>  
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td><input name="date" placeholder="mm/dd/yyyy" /></td>
+        </tr>
+        </table>
+        <input id="edit-submit" type="submit" value="create"/>
+        
+      </form>
+

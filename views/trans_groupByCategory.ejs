@@ -1,0 +1,20 @@
+<h1 class="header-row">group by category</h1>
+
+<table class="transactions-table">
+    <thead>
+        <tr>
+            <th>category</th>
+            <th>total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% results.map(item => {%>
+            <tr>
+                <td> <%= item._id %> </td>
+               <td><%= item.total %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<a href="/transaction"><button id="edit-submit">return to transactions</button></a>
